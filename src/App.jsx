@@ -1,5 +1,17 @@
+
+
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+
+import ProfileUpdate from "./ProfileUpdate"
+import ProfilePassword from "./ProfilePassword"
 import ShopPage from "./Pages/ShopPage"
-import { CartProvider } from "./Providers/CartProviders"
+import CartPage from "./Pages/cartPage"
+import Effect from "./Pages/effects"
+import Events from "./Pages/events"
+import ApiCall from "./Pages/ApiCall"
+
+
+
 // import { CounterProvider } from "./Providers/CounterProvider"
 
 const App=()=>{
@@ -28,12 +40,23 @@ const App=()=>{
 // )
 
 return(
-   
-
-      <CartProvider>
-      <ShopPage></ShopPage>
-   </CartProvider>
-   
+   <BrowserRouter>
+   <Routes>
+   <Route path="/api" Component={ApiCall}/>
+   <Route path="/events" Component={Events}/>
+      <Route path="/effect" Component={Effect}/>
+   <Route path="/shop" Component={ShopPage}/>
+   <Route path="/cart" Component={CartPage}/>
+      <Route path="settings"> 
+         <Route path="profile">
+            <Route path="update" Component={ProfileUpdate}/>
+            <Route path="password" Component={ProfilePassword}/>
+           
+         </Route>
+      </Route> 
+   </Routes> 
+   </BrowserRouter>
+  
 )
 
 }

@@ -3,6 +3,7 @@ import { v4 as uuidv4} from "uuid"
 
 import toast from "react-hot-toast";
 import TaskList from "./Components/TaskList";
+
 const LearnState=()=>{
 
  const[todoList,setTodoList]=useState([])
@@ -61,8 +62,8 @@ return <Fragment>
      <button onClick={HandleAddTask} className="btn btn-success rounded-0 mt-3 w-25">Add Task</button>
  </div>
 
-<TaskList type={"Pending"} todoList={todoList} handleRemove={handleRemove} handleStatus={handleStatus}/>
-<TaskList type={"Completed"} todoList={todoList} handleRemove={handleRemove} handleStatus={handleStatus}/>
+<TaskList type={"Pending"} todoList={todoList} setTodoList={setTodoList} handleRemove={handleRemove} handleStatus={handleStatus}/>
+<TaskList type={"Completed"} todoList={todoList} setTodoList={setTodoList} handleRemove={handleRemove} handleStatus={handleStatus}/>
 
 </Fragment>
 }
